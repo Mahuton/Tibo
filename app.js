@@ -9,26 +9,22 @@ var movie_id = '',
     tweetedTab = [];
 let url = 'https://www.themoviedb.org/movie/';
 //Instanciation
-var tmdb = new tmdbclient("7c690d1f9c2f7f69a69588ec8094e39a");
+var tmdb = new tmdbclient({consumer_key: process.env.TMDB_API_KEY});
   tmdb.call("/movie/upcoming", {})
     .then(function (data) {
       for( var property in data ){
-        //console.log( x );
         for( var elt in data[property] ){
           if (typeof data[property][elt].id != 'undefined') {
             movie_id = data[property][elt].id;
             movie_title = data[property][elt].title;
             movie_title = movie_title.replace(/ /g, '-').replace(/'/g, '').replace(/,/g, '').toLowerCase();
             link = url + movie_id + '-' + movie_title;
-            //console.log( movie_id );
-            //console.log( movie_title );
             urlTab.push( link );
           }
 
         }
 
       }
-      //console.log( urlTab.length );
       var Bot = new TwitterBot({
        consumer_key: process.env.BOT_CONSUMER_KEY,
        consumer_secret: process.env.BOT_CONSUMER_SECRET,
