@@ -1,0 +1,18 @@
+{
+  "name": "twitter-bot-mah",
+  "version": "1.0.0",
+  "description": "simple twitter bot",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mahuton",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "node-twitterbot": "^0.2.2",
+    "themoviedbclient": "^0.2.1",
+    "twit": "^2.2.9"
+  }
+}
