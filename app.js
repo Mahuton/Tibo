@@ -9,7 +9,7 @@ var movie_id = '',
     tweetedTab = [];
 let url = 'https://www.themoviedb.org/movie/';
 //Instanciation
-var tmdb = new tmdbclient({consumer_key: process.env.TMDB_API_KEY});
+var tmdb = new tmdbclient({api_key: process.env.TMDB_API_KEY});
   tmdb.call("/movie/upcoming", {})
     .then(function (data) {
       for( var property in data ){
